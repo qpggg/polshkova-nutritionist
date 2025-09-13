@@ -1,0 +1,74 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#166534;stop-opacity:0.05" />
+    </linearGradient>
+    <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316" />
+      <stop offset="100%" style="stop-color:#ea580c" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#166534" />
+      <stop offset="100%" style="stop-color:#22c55e" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#bgGradient)" rx="32"/>
+  
+  <!-- Main doctor icon -->
+  <circle cx="200" cy="160" r="50" fill="url(#iconGradient)" opacity="0.2"/>
+  <circle cx="200" cy="160" r="35" fill="url(#iconGradient)"/>
+  
+  <!-- Doctor icon details -->
+  <circle cx="200" cy="150" r="15" fill="white"/>
+  <path d="M170 190 Q200 210 230 190 Q215 200 200 200 Q185 200 170 190Z" fill="white"/>
+  
+  <!-- Stethoscope -->
+  <path d="M185 175 Q180 180 180 185 Q180 190 185 195" stroke="white" stroke-width="3" fill="none"/>
+  <path d="M215 175 Q220 180 220 185 Q220 190 215 195" stroke="white" stroke-width="3" fill="none"/>
+  <circle cx="175" cy="200" r="4" fill="white"/>
+  <circle cx="225" cy="200" r="4" fill="white"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="120" cy="100" r="8" fill="url(#accentGradient)" opacity="0.6"/>
+  <circle cx="300" cy="120" r="6" fill="url(#iconGradient)" opacity="0.4"/>
+  <circle cx="80" cy="280" r="10" fill="url(#accentGradient)" opacity="0.3"/>
+  <circle cx="320" cy="320" r="12" fill="url(#iconGradient)" opacity="0.2"/>
+  
+  <!-- Health icons -->
+  <g transform="translate(100, 280)">
+    <!-- Apple icon -->
+    <path d="M15 5 Q10 0 5 5 Q0 10 5 20 Q10 25 15 20 Q20 25 25 20 Q30 10 25 5 Q20 0 15 5Z" fill="url(#accentGradient)" opacity="0.6"/>
+    <path d="M15 2 Q12 0 15 0 Q18 0 15 2" fill="url(#accentGradient)" opacity="0.8"/>
+  </g>
+  
+  <g transform="translate(270, 280)">
+    <!-- Heart icon -->
+    <path d="M15 25 Q5 15 5 8 Q5 0 15 0 Q25 0 25 8 Q25 15 15 25Z" fill="url(#iconGradient)" opacity="0.6"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="200" y="260" text-anchor="middle" fill="#374151" font-family="Poppins, sans-serif" font-size="24" font-weight="600">
+    Ваш нутрициолог
+  </text>
+  <text x="200" y="285" text-anchor="middle" fill="#6b7280" font-family="Inter, sans-serif" font-size="16" font-weight="400">
+    в Мичуринске
+  </text>
+  
+  <!-- Bottom accent -->
+  <rect x="150" y="320" width="100" height="3" fill="url(#iconGradient)" rx="2"/>
+  
+  <!-- Floating particles -->
+  <circle cx="50" cy="50" r="2" fill="url(#iconGradient)" opacity="0.3">
+    <animate attributeName="cy" values="50;45;50" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="350" cy="80" r="3" fill="url(#accentGradient)" opacity="0.4">
+    <animate attributeName="cy" values="80;75;80" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="60" cy="200" r="2" fill="url(#iconGradient)" opacity="0.2">
+    <animate attributeName="cy" values="200;195;200" dur="5s" repeatCount="indefinite"/>
+  </circle>
+</svg>

@@ -1,0 +1,306 @@
+/* Why Me Section Styles */
+.why-me {
+  background: radial-gradient(
+    ellipse at top,
+    rgba(249, 115, 22, 0.03) 0%,
+    var(--color-white) 50%,
+    rgba(249, 115, 22, 0.01) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.why-me::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: -15%;
+  width: 30%;
+  height: 80%;
+  background: linear-gradient(
+    60deg,
+    rgba(249, 115, 22, 0.02) 0%,
+    transparent 50%
+  );
+  border-radius: 0% 100% 0% 100%;
+  transform: rotate(10deg);
+}
+
+/* Advantages Grid */
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-8);
+  margin-bottom: var(--space-20);
+}
+
+@media (max-width: 768px) {
+  .advantages-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* Advantage Cards */
+.advantage-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  text-align: center;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.advantage-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-orange) 0%,
+    var(--color-orange-light) 100%
+  );
+  transform: translateX(-100%);
+  transition: transform var(--transition-base);
+}
+
+.advantage-card:hover::before {
+  transform: translateX(0);
+}
+
+.advantage-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-orange);
+}
+
+.advantage-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(
+    135deg,
+    var(--color-orange) 0%,
+    var(--color-orange-light) 100%
+  );
+  border-radius: var(--radius-full);
+  color: var(--color-white);
+  margin: 0 auto var(--space-6);
+  transition: transform var(--transition-fast);
+}
+
+.advantage-card:hover .advantage-icon {
+  transform: scale(1.1);
+}
+
+.advantage-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.advantage-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-gray-900);
+  margin: 0;
+  line-height: var(--leading-tight);
+}
+
+.advantage-description {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-gray-600);
+  margin: 0;
+}
+
+.advantage-highlight {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: var(--space-2) var(--space-4);
+  background-color: rgba(249, 115, 22, 0.1);
+  border-radius: var(--radius-full);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* Achievements Section */
+.achievements-section {
+  background: linear-gradient(
+    135deg,
+    var(--color-gray-50) 0%,
+    var(--color-white) 100%
+  );
+  border-radius: var(--radius-2xl);
+  padding: var(--space-12);
+  margin-bottom: var(--space-20);
+  text-align: center;
+}
+
+.achievements-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+
+.achievements-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-4);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .achievements-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.achievement-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast);
+  text-align: left;
+}
+
+.achievement-item:hover {
+  transform: translateX(4px);
+}
+
+.achievement-item svg {
+  color: var(--color-orange);
+  flex-shrink: 0;
+}
+
+.achievement-item span {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-gray-700);
+  font-weight: var(--font-medium);
+}
+
+/* Testimonial Preview */
+.testimonial-preview {
+  background: linear-gradient(
+    135deg,
+    var(--color-orange) 0%,
+    var(--color-orange-dark) 100%
+  );
+  border-radius: var(--radius-3xl);
+  padding: var(--space-12);
+  text-align: center;
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-preview::before {
+  content: '"';
+  position: absolute;
+  top: var(--space-6);
+  left: var(--space-8);
+  font-size: 6rem;
+  font-family: var(--font-family-heading);
+  color: rgba(255, 255, 255, 0.2);
+  line-height: 1;
+}
+
+.testimonial-quote {
+  font-size: var(--text-xl);
+  line-height: var(--leading-relaxed);
+  font-style: italic;
+  margin: 0 0 var(--space-6) 0;
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial-author {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  opacity: 0.9;
+  font-style: normal;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .advantages-grid {
+    gap: var(--space-4);
+  }
+  
+  .advantage-card {
+    padding: var(--space-6);
+  }
+  
+  .advantage-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: var(--space-4);
+  }
+  
+  .advantage-title {
+    font-size: var(--text-xl);
+  }
+  
+  .achievements-section {
+    padding: var(--space-8);
+  }
+  
+  .achievements-title {
+    font-size: var(--text-2xl);
+  }
+  
+  .testimonial-preview {
+    padding: var(--space-8);
+  }
+  
+  .testimonial-quote {
+    font-size: var(--text-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .advantage-card {
+    padding: var(--space-4);
+  }
+  
+  .advantage-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .advantage-title {
+    font-size: var(--text-lg);
+  }
+  
+  .achievement-item {
+    padding: var(--space-3);
+  }
+  
+  .testimonial-preview::before {
+    font-size: 4rem;
+    top: var(--space-4);
+    left: var(--space-4);
+  }
+}

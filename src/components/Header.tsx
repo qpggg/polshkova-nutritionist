@@ -1,0 +1,110 @@
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, Phone } from 'lucide-react';
+
+const Header: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const navigation = [
+    { name: 'Главная', href: '/' },
+    { name: 'О специалисте', href: '/about' },
+    { name: 'Услуги', href: '/services' },
+    { name: 'Полезное', href: '/resources' },
+    { name: 'Контакты', href: '/contacts' },
+  ];
+
+  const isActiveLink = (href: string) => {
+    if (href === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(href);
+  };
+
+  return (
+    <header className="header">
+      <nav className="nav">
+        <div className="container">
+          <div className="nav-content">
+            {/* Logo */}
+            <Link to="/" className="logo">
+              <span className="logo-text">
+                Нутрициолог <span className="text-orange">Мичуринск</span>
+              </span>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <div className="nav-links desktop-nav">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`nav-link ${
+                    isActiveLink(item.href) ? 'nav-link-active' : ''
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+
+            {/* Contact Button */}
+            <div className="nav-contact desktop-nav">
+              <a href="tel:+79876543210" className="contact-link">
+                <Phone size={18} />
+                +7 (987) 654-32-10
+              </a>
+              <Link to="/contacts" className="btn btn-primary">
+                Записаться
+              </Link>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="mobile-menu-btn"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+
+          {/* Mobile Navigation */}
+          {isMenuOpen && (
+            <div className="mobile-nav">
+              <div className="mobile-nav-links">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`mobile-nav-link ${
+                      isActiveLink(item.href) ? 'mobile-nav-link-active' : ''
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+              <div className="mobile-nav-contact">
+                <a href="tel:+79876543210" className="mobile-contact-link">
+                  <Phone size={18} />
+                  +7 (987) 654-32-10
+                </a>
+                <Link
+                  to="/contacts"
+                  className="btn btn-primary"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Записаться на консультацию
+                </Link>
+              </div>
+            </div>
+          )}
+        </div>
+      </nav>
+    </header>
+  );
+};
+
+export default Header;
