@@ -41,12 +41,44 @@ const ContactCTA: React.FC = () => {
     }));
   };
 
+  const sendToTelegram = (data: FormData) => {
+    const message = `Новая заявка на консультацию
+
+Имя: ${data.name}
+Телефон: ${data.phone}
+Email: ${data.email || 'tanya.polshkova.75@mail.ru'}
+Возраст: ${data.age}
+Проблема: ${data.problem}
+Сообщение: ${data.message}
+
+Хочу записаться на консультацию к нутрициологу`;
+
+    try {
+      const encodedMessage = encodeURIComponent(message);
+      const telegramUrl = `https://t.me/nutritionist_michurinsk?text=${encodedMessage}`;
+      
+      // Пробуем открыть Telegram
+      const newWindow = window.open(telegramUrl, '_blank');
+      
+      // Если не удалось открыть, показываем альтернативу
+      if (!newWindow) {
+        alert('Не удалось открыть Telegram. Перейдите по ссылке: https://t.me/nutritionist_michurinsk');
+      }
+    } catch (error) {
+      console.error('Ошибка при отправке в Telegram:', error);
+      alert('Не удалось открыть Telegram. Перейдите по ссылке: https://t.me/nutritionist_michurinsk');
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
     // Имитация отправки формы
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Отправляем данные в Telegram
+    sendToTelegram(formData);
     
     setIsSubmitting(false);
     setIsSubmitted(true);
@@ -54,24 +86,17 @@ const ContactCTA: React.FC = () => {
 
   const contactMethods = [
     {
-      icon: <Phone size={24} />,
-      title: 'Телефон',
-      value: '+7 (987) 654-32-10',
-      action: 'tel:+79876543210',
-      description: 'Звоните в рабочее время'
-    },
-    {
       icon: <MessageCircle size={24} />,
       title: 'WhatsApp',
       value: 'Написать сообщение',
-      action: 'https://wa.me/79876543210',
+      action: 'https://wa.me/79156720703',
       description: 'Быстрый ответ в любое время'
     },
     {
       icon: <Mail size={24} />,
       title: 'Email',
-      value: 'info@nutritionist-michurinsk.ru',
-      action: 'mailto:info@nutritionist-michurinsk.ru',
+      value: 'tanya.polshkova.75@mail.ru',
+      action: 'mailto:tanya.polshkova.75@mail.ru',
       description: 'Подробная консультация по почте'
     }
   ];
@@ -83,7 +108,7 @@ const ContactCTA: React.FC = () => {
           <div className="success-message">
             <CheckCircle size={64} className="success-icon" />
             <h2>Спасибо за обращение!</h2>
-            <p>Ваша заявка успешно отправлена. Я свяжусь с вами в ближайшее время для уточнения деталей консультации.</p>
+            <p>Ваша заявка отправлена в Telegram! Я свяжусь с вами в ближайшее время для уточнения деталей консультации.</p>
             <button 
               onClick={() => {
                 setIsSubmitted(false);
@@ -226,7 +251,7 @@ const ContactCTA: React.FC = () => {
                   onChange={handleInputChange}
                   className="form-textarea"
                   placeholder="Расскажите подробнее о вашей ситуации..."
-                  rows={4}
+                  rows={3}
                 />
               </div>
 
@@ -252,6 +277,16 @@ const ContactCTA: React.FC = () => {
 
           <div className="contact-methods">
             <h3>Другие способы связи</h3>
+            
+            {/* Объединенная кнопка с номером телефона */}
+            <a
+              href="tel:+79156720703"
+              className="phone-cta-button"
+            >
+              <Phone size={24} />
+              <span className="phone-number">+7 915 672 07 03</span>
+            </a>
+
             <div className="methods-list">
               {contactMethods.map((method, index) => (
                 <a
@@ -271,14 +306,16 @@ const ContactCTA: React.FC = () => {
                   </div>
                 </a>
               ))}
-            </div>
-
-            <div className="schedule-info">
-              <Clock size={24} />
-              <div>
-                <h4>График работы</h4>
-                <p>Понедельник - Пятница: 9:00 - 18:00</p>
-                <p>Суббота - Воскресенье: по договоренности</p>
+              
+              <div className="schedule-info method-card">
+                <div className="method-icon">
+                  <Clock size={24} className="text-white" />
+                </div>
+                <div className="method-content">
+                  <h4>График работы</h4>
+                  <p>Понедельник - Пятница: 9:00 - 18:00</p>
+                  <span>Суббота - Воскресенье: по договоренности</span>
+                </div>
               </div>
             </div>
           </div>

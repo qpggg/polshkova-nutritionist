@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -44,40 +43,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div className="footer-section">
-            <h3 className="footer-title">Контакты</h3>
-            <div className="footer-contacts">
-              <div className="contact-item">
-                <Phone size={18} />
-                <a href="tel:+79876543210">+7 (987) 654-32-10</a>
-              </div>
-              <div className="contact-item">
-                <MessageCircle size={18} />
-                <a 
-                  href="https://wa.me/79876543210" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  WhatsApp
-                </a>
-              </div>
-              <div className="contact-item">
-                <Mail size={18} />
-                <a href="mailto:info@nutritionist-michurinsk.ru">
-                  info@nutritionist-michurinsk.ru
-                </a>
-              </div>
-              <div className="contact-item">
-                <MapPin size={18} />
-                <span>Мичуринск + онлайн по России</span>
-              </div>
-              <div className="contact-item">
-                <Clock size={18} />
-                <span>Пн-Пт: 9:00-18:00</span>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Bottom Section */}
@@ -86,10 +51,6 @@ const Footer: React.FC = () => {
             <p className="copyright">
               © 2024 Нутрициолог Мичуринск. Все права защищены.
             </p>
-            <div className="footer-bottom-links">
-              <Link to="/privacy">Политика конфиденциальности</Link>
-              <Link to="/terms">Пользовательское соглашение</Link>
-            </div>
           </div>
         </div>
       </div>

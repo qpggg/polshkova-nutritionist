@@ -10,7 +10,7 @@ const Header: React.FC = () => {
     { name: 'Главная', href: '/' },
     { name: 'О специалисте', href: '/about' },
     { name: 'Услуги', href: '/services' },
-    { name: 'Полезное', href: '/resources' },
+    { name: 'Калькулятор', href: '/bmi-calculator' },
     { name: 'Контакты', href: '/contacts' },
   ];
 
@@ -29,7 +29,8 @@ const Header: React.FC = () => {
             {/* Logo */}
             <Link to="/" className="logo">
               <span className="logo-text">
-                Нутрициолог <span className="text-orange">Мичуринск</span>
+                <span className="logo-line">Нутрициолог</span>
+                <span className="logo-line text-orange">Мичуринск</span>
               </span>
             </Link>
 
@@ -50,13 +51,10 @@ const Header: React.FC = () => {
 
             {/* Contact Button */}
             <div className="nav-contact desktop-nav">
-              <a href="tel:+79876543210" className="contact-link">
-                <Phone size={18} />
-                +7 (987) 654-32-10
+              <a href="tel:+79156720703" className="header-phone-button">
+                <Phone size={20} />
+                <span className="header-phone-number">+7 915 672 07 03</span>
               </a>
-              <Link to="/contacts" className="btn btn-primary">
-                Записаться
-              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -87,17 +85,10 @@ const Header: React.FC = () => {
                 ))}
               </div>
               <div className="mobile-nav-contact">
-                <a href="tel:+79876543210" className="mobile-contact-link">
-                  <Phone size={18} />
-                  +7 (987) 654-32-10
+                <a href="tel:+79156720703" className="mobile-header-phone-button">
+                  <Phone size={20} />
+                  <span className="mobile-header-phone-number">+7 915 672 07 03</span>
                 </a>
-                <Link
-                  to="/contacts"
-                  className="btn btn-primary"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Записаться на консультацию
-                </Link>
               </div>
             </div>
           )}

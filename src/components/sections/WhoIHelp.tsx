@@ -1,7 +1,16 @@
-import React from 'react';
-import { Scale, Activity, Shield, Baby, Heart, Stethoscope } from 'lucide-react';
+import React, { useState } from 'react';
+import { Scale, Activity, Shield, Baby, Heart, Stethoscope, ChevronDown, ChevronUp } from 'lucide-react';
 
 const WhoIHelp: React.FC = () => {
+  const [expandedCards, setExpandedCards] = useState<number[]>([]);
+
+  const toggleCard = (index: number) => {
+    setExpandedCards(prev => 
+      prev.includes(index) 
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    );
+  };
   const helpCategories = [
     {
       icon: <Scale size={32} />,
@@ -95,9 +104,12 @@ const WhoIHelp: React.FC = () => {
           {helpCategories.map((category, index) => (
             <div 
               key={index} 
-              className={`help-category-card ${category.color}`}
+              className={`help-category-card ${category.color} ${expandedCards.includes(index) ? 'expanded' : ''}`}
             >
-              <div className="category-header">
+              <div 
+                className="category-header"
+                onClick={() => toggleCard(index)}
+              >
                 <div className="category-icon">
                   {category.icon}
                 </div>
@@ -105,9 +117,16 @@ const WhoIHelp: React.FC = () => {
                   <h3 className="category-title">{category.title}</h3>
                   <p className="category-description">{category.description}</p>
                 </div>
+                <div className="category-toggle">
+                  {expandedCards.includes(index) ? (
+                    <ChevronUp size={24} />
+                  ) : (
+                    <ChevronDown size={24} />
+                  )}
+                </div>
               </div>
               
-              <div className="category-details">
+              <div className={`category-details ${expandedCards.includes(index) ? 'expanded' : ''}`}>
                 <h4>Что входит:</h4>
                 <ul className="category-list">
                   {category.details.map((detail, detailIndex) => (

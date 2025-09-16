@@ -1,11 +1,11 @@
 /* Why Me Section Styles */
 .why-me {
-  background: radial-gradient(
+  /* background: radial-gradient(
     ellipse at top,
     rgba(249, 115, 22, 0.03) 0%,
     var(--color-white) 50%,
     rgba(249, 115, 22, 0.01) 100%
-  );
+  ); */
   position: relative;
   overflow: hidden;
 }

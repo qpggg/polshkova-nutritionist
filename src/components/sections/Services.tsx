@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { User, FileText, Baby, Activity, Users, ArrowRight } from 'lucide-react';
+import { User, FileText, Baby, Activity, Users, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 
 const Services: React.FC = () => {
+  const [expandedCards, setExpandedCards] = useState<number[]>([]);
+
+  const toggleCard = (index: number) => {
+    setExpandedCards(prev => 
+      prev.includes(index) 
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    );
+  };
   const services = [
     {
       icon: <User size={24} />,
@@ -67,8 +76,11 @@ const Services: React.FC = () => {
 
         <div className="services-grid">
           {services.map((service, index) => (
-            <div key={index} className="service-card">
-              <div className="service-header">
+            <div key={index} className={`service-card ${expandedCards.includes(index) ? 'expanded' : ''}`}>
+              <div 
+                className="service-header"
+                onClick={() => toggleCard(index)}
+              >
                 <div className="service-icon">
                   {service.icon}
                 </div>
@@ -76,9 +88,17 @@ const Services: React.FC = () => {
                   <h3 className="service-title">{service.title}</h3>
                   <p className="service-description">{service.description}</p>
                 </div>
+                <div className="service-toggle">
+                  {expandedCards.includes(index) ? (
+                    <ChevronUp size={24} />
+                  ) : (
+                    <ChevronDown size={24} />
+                  )}
+                </div>
               </div>
 
-              <div className="service-features">
+              <div className={`service-features ${expandedCards.includes(index) ? 'expanded' : ''}`}>
+                <h4>Что включено:</h4>
                 <ul>
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex}>{feature}</li>
@@ -86,7 +106,7 @@ const Services: React.FC = () => {
                 </ul>
               </div>
 
-              <div className="service-details">
+              <div className={`service-details ${expandedCards.includes(index) ? 'expanded' : ''}`}>
                 <div className="service-meta">
                   <span className="service-duration">Длительность: {service.duration}</span>
                   <span className="service-price">{service.price}</span>

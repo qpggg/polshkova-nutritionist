@@ -10,6 +10,11 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 body {
@@ -189,6 +194,7 @@ img {
   max-width: var(--container-xl);
   margin: 0 auto;
   padding: 0 var(--space-4);
+  overflow-x: hidden;
 }
 
 @media (min-width: 640px) {
@@ -357,7 +363,7 @@ img {
 }
 
 .section-alt {
-  background-color: var(--color-gray-50);
+  /* background-color: var(--color-gray-50); */
 }
 
 /* Animations */
@@ -395,4 +401,26 @@ img {
 .form-textarea:focus-visible {
   outline: 2px solid var(--color-orange);
   outline-offset: 2px;
+}
+
+/* Prevent horizontal scroll on mobile */
+@media (max-width: 768px) {
+  * {
+    max-width: 100%;
+  }
+  
+  .container {
+    padding: 0 var(--space-3);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
 }

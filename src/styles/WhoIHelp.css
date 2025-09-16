@@ -1,11 +1,11 @@
 /* Who I Help Section Styles */
 .who-i-help {
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
     var(--color-gray-50) 0%,
     var(--color-white) 50%,
     var(--color-gray-50) 100%
-  );
+  ); */
   position: relative;
 }
 
@@ -49,9 +49,9 @@
   );
   border-radius: var(--radius-3xl);
   padding: var(--space-8);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: all var(--transition-base);
-  border: 2px solid rgba(249, 115, 22, 0.1);
+  border: 1px solid var(--color-gray-200);
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -82,18 +82,20 @@
     var(--color-white) 0%,
     rgba(22, 163, 74, 0.02) 100%
   );
-  border: 2px solid rgba(22, 163, 74, 0.1);
-  box-shadow: 0 10px 25px rgba(22, 163, 74, 0.15);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .help-category-card:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.15);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: var(--color-orange);
 }
 
 .help-category-card.green:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(22, 163, 74, 0.25);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: var(--color-green);
 }
 
 .help-category-card:hover::before {
@@ -107,7 +109,7 @@
 
 .help-category-card.green:hover {
   border-color: var(--color-green);
-  box-shadow: 0 20px 40px rgba(22, 163, 74, 0.25);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 /* Category Header */
@@ -116,6 +118,12 @@
   align-items: flex-start;
   gap: var(--space-4);
   margin-bottom: var(--space-6);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.category-header:hover {
+  transform: translateY(-2px);
 }
 
 .category-icon {
@@ -127,7 +135,7 @@
   border-radius: var(--radius-2xl);
   flex-shrink: 0;
   transition: all var(--transition-base);
-  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   position: relative;
 }
 
@@ -154,7 +162,7 @@
 .help-category-card.green .category-icon {
   background: linear-gradient(135deg, var(--color-green), var(--color-green-light));
   color: var(--color-white);
-  box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .help-category-card.green .category-icon::before {
@@ -167,12 +175,12 @@
 
 .help-category-card.green:hover .category-icon {
   transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 15px 35px rgba(22, 163, 74, 0.4);
+  box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .help-category-card:hover .category-icon {
   transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 15px 35px rgba(249, 115, 22, 0.4);
+  box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .help-category-card:hover .category-icon::before {
@@ -181,6 +189,35 @@
 
 .category-info {
   flex: 1;
+}
+
+.category-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-lg);
+  background-color: rgba(249, 115, 22, 0.1);
+  color: var(--color-orange);
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.help-category-card.green .category-toggle {
+  background-color: rgba(22, 163, 74, 0.1);
+  color: var(--color-green);
+}
+
+.category-toggle:hover {
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  transform: scale(1.1);
+}
+
+.help-category-card.green .category-toggle:hover {
+  background-color: var(--color-green);
+  color: var(--color-white);
 }
 
 .category-title {
@@ -199,6 +236,19 @@
 }
 
 /* Category Details */
+.category-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+}
+
+.category-details.expanded {
+  max-height: 500px;
+  opacity: 1;
+  transition: max-height 0.3s ease-in, opacity 0.3s ease-in;
+}
+
 .category-details h4 {
   font-size: var(--text-lg);
   font-weight: var(--font-semibold);
@@ -254,7 +304,7 @@
   border-radius: var(--radius-2xl);
   padding: var(--space-8);
   text-align: center;
-  box-shadow: var(--shadow-lg);
+  box-shadow: none;
   margin-bottom: var(--space-12);
 }
 
@@ -274,7 +324,7 @@
 
 .success-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-6);
 }
 
@@ -288,6 +338,7 @@
 @media (max-width: 480px) {
   .success-stats {
     grid-template-columns: 1fr;
+    gap: var(--space-3);
   }
 }
 
@@ -302,11 +353,15 @@
     rgba(255, 107, 53, 0.05) 0%,
     rgba(45, 80, 22, 0.05) 100%
   );
-  transition: transform var(--transition-fast);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--color-gray-200);
+  transition: all var(--transition-base);
 }
 
 .success-stat:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-color: var(--color-orange);
 }
 
 .success-number {
@@ -343,7 +398,7 @@
     var(--color-white) 0%,
     var(--color-gray-50) 100%
   );
-  border: 2px solid var(--color-orange);
+  border: none;
   border-radius: var(--radius-2xl);
   padding: var(--space-8);
   text-align: center;
@@ -396,15 +451,20 @@
   }
   
   .category-header {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    text-align: left;
     gap: var(--space-3);
+    align-items: center;
   }
   
   .category-icon {
     width: 50px;
     height: 50px;
-    margin: 0 auto;
+  }
+  
+  .category-toggle {
+    width: 36px;
+    height: 36px;
   }
   
   .success-preview {
