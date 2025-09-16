@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Coffee, Heart, Star, ArrowRight } from 'lucide-react';
 
 const PersonalStory: React.FC = () => {
@@ -57,10 +58,14 @@ const PersonalStory: React.FC = () => {
               <p className="story-cta-text">
                 Хотите узнать, как я могу помочь именно вам?
               </p>
-              <a href="/contacts" className="btn btn-primary">
+              <Link 
+                to="/contacts" 
+                className="btn btn-primary"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 Записаться на консультацию
                 <ArrowRight size={20} />
-              </a>
+              </Link>
             </div>
           </div>
 

@@ -31,15 +31,15 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Contacts */}
           <div className="footer-section">
-            <h3 className="footer-title">Услуги</h3>
+            <h3 className="footer-title">Контакты</h3>
             <ul className="footer-links">
-              <li><Link to="/services/consultation">Консультации</Link></li>
-              <li><Link to="/services/nutrition-plans">Планы питания</Link></li>
-              <li><Link to="/services/children">Детская нутрициология</Link></li>
-              <li><Link to="/services/diseases">При заболеваниях</Link></li>
-              <li><Link to="/services/lectures">Лекции и вебинары</Link></li>
+              <li><a href="tel:+79156720703">+7 915 672 07 03</a></li>
+              <li><a href="mailto:tanya.polshkova.75@mail.ru">tanya.polshkova.75@mail.ru</a></li>
+              <li><a href="https://wa.me/79156720703" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+              <li><a href="https://t.me/nutritionist_michurinsk" target="_blank" rel="noopener noreferrer">Telegram</a></li>
+              <li><Link to="/contacts">Все контакты</Link></li>
             </ul>
           </div>
 

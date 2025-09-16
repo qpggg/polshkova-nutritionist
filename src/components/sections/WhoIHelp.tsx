@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Scale, Activity, Shield, Baby, Heart, Stethoscope, ChevronDown, ChevronUp } from 'lucide-react';
 
 const WhoIHelp: React.FC = () => {
@@ -170,12 +171,16 @@ const WhoIHelp: React.FC = () => {
               ваши цели и определить план работы
             </p>
             <div className="cta-buttons">
-              <a href="#contact" className="btn btn-primary">
+              <Link 
+                to="/contacts" 
+                className="btn btn-primary"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 Записаться на консультацию
-              </a>
-              <a href="/services" className="btn btn-outline">
+              </Link>
+              <Link to="/services" className="btn btn-outline">
                 Посмотреть услуги
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -37,7 +37,11 @@ const Hero: React.FC = () => {
             </div>
 
             <div className="hero-cta">
-              <Link to="/contacts" className="btn btn-primary btn-lg">
+              <Link 
+                to="/contacts" 
+                className="btn btn-primary btn-lg"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 Записаться на консультацию
                 <ArrowRight size={20} />
               </Link>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Heart, AlertCircle, CheckCircle, TrendingUp, ArrowRight } from 'lucide-react';
 
 const BMIInfo: React.FC = () => {
@@ -169,10 +170,14 @@ const BMIInfo: React.FC = () => {
                 <span>Долгосрочный результат</span>
               </div>
             </div>
-            <button className="btn btn-primary btn-lg bmi-cta-button">
+            <Link 
+              to="/contacts" 
+              className="btn btn-primary btn-lg bmi-cta-button"
+              onClick={() => window.scrollTo(0, 0)}
+            >
               <span>Записаться на консультацию</span>
               <ArrowRight size={20} />
-            </button>
+            </Link>
           </div>
         </div>
       </div>

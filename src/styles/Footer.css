@@ -68,14 +68,17 @@
   gap: var(--space-3);
 }
 
-.footer-links a {
+.footer-links a,
+.footer-links a:link,
+.footer-links a:visited {
   color: var(--color-gray-300);
   text-decoration: none;
   transition: color var(--transition-fast);
   font-weight: var(--font-normal);
 }
 
-.footer-links a:hover {
+.footer-links a:hover,
+.footer-links a:focus {
   color: var(--color-orange);
 }
 

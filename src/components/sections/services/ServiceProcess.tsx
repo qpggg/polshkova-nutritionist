@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MessageCircle, FileText, Calendar, TrendingUp } from 'lucide-react';
 
 const ServiceProcess: React.FC = () => {
@@ -78,9 +79,13 @@ const ServiceProcess: React.FC = () => {
           <div className="process-cta-content">
             <h3>Готовы начать путь к здоровому питанию?</h3>
             <p>Запишитесь на первичную консультацию и получите персональный план питания</p>
-            <button className="btn btn-primary btn-lg">
+            <Link 
+              to="/contacts" 
+              className="btn btn-primary btn-lg"
+              onClick={() => window.scrollTo(0, 0)}
+            >
               Записаться на консультацию
-            </button>
+            </Link>
           </div>
         </div>
       </div>

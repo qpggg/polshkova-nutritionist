@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { BookOpen, Clock, ArrowRight, Heart, Utensils, Activity } from 'lucide-react';
 
 const HealthyArticles: React.FC = () => {
@@ -109,9 +110,13 @@ const HealthyArticles: React.FC = () => {
           <div className="articles-cta-content">
             <h3>Хотите больше персональных рекомендаций?</h3>
             <p>Запишитесь на индивидуальную консультацию и получите план питания, составленный специально для вас</p>
-            <button className="btn btn-primary btn-lg">
+            <Link 
+              to="/contacts" 
+              className="btn btn-primary btn-lg"
+              onClick={() => window.scrollTo(0, 0)}
+            >
               Записаться на консультацию
-            </button>
+            </Link>
           </div>
         </div>
       </div>

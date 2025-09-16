@@ -273,6 +273,7 @@ select.form-input {
   transition: all var(--transition-base);
   position: relative;
   overflow: hidden;
+  flex-direction: row-reverse;
 }
 
 .method-card::before {
@@ -329,6 +330,7 @@ select.form-input {
 
 .method-content {
   flex: 1;
+  text-align: center;
 }
 
 .method-content h4 {
@@ -446,8 +448,8 @@ select.form-input {
   }
   
   .methods-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: var(--space-4);
   }
   
@@ -457,7 +459,7 @@ select.form-input {
   
   .method-card {
     padding: var(--space-4);
-    flex-direction: column;
+    flex-direction: row-reverse;
     text-align: center;
   }
   
@@ -504,20 +506,16 @@ select.form-input {
   
   .method-card {
     padding: var(--space-3);
+    flex-direction: row-reverse;
+  }
+  
+  .methods-list {
+    display: flex;
+    flex-direction: column;
   }
   
   .schedule-info {
     padding: var(--space-4);
-  }
-}
-
-/* Very small screens - single column */
-@media (max-width: 480px) {
-  .methods-list {
-    grid-template-columns: 1fr;
-  }
-  
-  .schedule-info {
     grid-column: auto;
   }
 }

@@ -9,7 +9,6 @@
 .contact-hero {
   position: relative;
   min-height: 80vh;
-  max-height: 100vh;
   display: flex;
   align-items: center;
   background: linear-gradient(
@@ -17,8 +16,70 @@
     var(--color-white) 0%,
     var(--color-gray-50) 100%
   );
-  overflow: hidden;
+  overflow: visible;
   padding: var(--space-16) 0;
+}
+
+@media (max-width: 768px) {
+  .contact-hero {
+    min-height: auto;
+    padding: var(--space-12) 0;
+    overflow: visible;
+  }
+  
+  .contact-hero-content {
+    padding: var(--space-4) 0;
+  }
+  
+  .contact-hero-title {
+    font-size: var(--text-4xl);
+    margin-bottom: var(--space-4);
+  }
+  
+  .contact-hero-subtitle {
+    margin-bottom: var(--space-8);
+  }
+  
+  .contact-hero-features {
+    grid-template-columns: 1fr;
+    margin-bottom: var(--space-8);
+  }
+  
+  .contact-hero-feature {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-hero {
+    min-height: auto;
+    padding: var(--space-8) 0;
+    overflow: visible;
+  }
+  
+  .contact-hero-content {
+    padding: var(--space-2) 0;
+  }
+  
+  .contact-hero-title {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-3);
+  }
+  
+  .contact-hero-subtitle {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-6);
+  }
+  
+  .contact-hero-features {
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+  
+  .contact-hero-feature {
+    padding: var(--space-4);
+  }
 }
 
 .contact-hero-content {
@@ -30,10 +91,15 @@
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 .contact-hero-text {
   animation: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contact-hero-title {
@@ -42,6 +108,8 @@
   color: var(--color-gray-900);
   margin-bottom: var(--space-6);
   line-height: var(--leading-tight);
+  text-align: center;
+  width: 100%;
 }
 
 .contact-hero-subtitle {
@@ -50,6 +118,8 @@
   margin-bottom: var(--space-12);
   line-height: var(--leading-relaxed);
   max-width: 900px;
+  text-align: center;
+  width: 100%;
 }
 
 .contact-hero-features {
@@ -161,6 +231,18 @@
   );
   position: relative;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .contact-form-section {
+    padding: var(--space-12) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form-section {
+    padding: var(--space-8) 0;
+  }
 }
 
 .contact-form-section::before {
@@ -508,6 +590,18 @@
     var(--color-gray-50) 0%,
     var(--color-white) 100%
   );
+}
+
+@media (max-width: 768px) {
+  .contact-info-section {
+    padding: var(--space-12) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-info-section {
+    padding: var(--space-8) 0;
+  }
 }
 
 .contact-info-header {
@@ -962,6 +1056,7 @@
   
   .contact-form {
     padding: var(--space-6);
+    margin: 0 var(--space-2);
   }
   
   .contact-method-card {
@@ -971,5 +1066,80 @@
   
   .location-details {
     grid-template-columns: 1fr;
+  }
+  
+  .contact-hero-features {
+    gap: var(--space-4);
+  }
+  
+  .contact-hero-feature {
+    padding: var(--space-4);
+  }
+  
+  .form-row {
+    gap: var(--space-4);
+  }
+  
+  .radio-group {
+    gap: var(--space-3);
+  }
+  
+  .radio-option {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-sm);
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 320px) {
+  .contact-hero {
+    min-height: auto;
+    padding: var(--space-6) 0;
+    overflow: visible;
+  }
+  
+  .contact-hero-content {
+    padding: var(--space-1) 0;
+  }
+  
+  .contact-hero-title {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-2);
+  }
+  
+  .contact-hero-subtitle {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-4);
+  }
+  
+  .contact-hero-features {
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+  
+  .contact-form {
+    padding: var(--space-4);
+    margin: 0 var(--space-1);
+  }
+  
+  .contact-hero-feature {
+    padding: var(--space-3);
+  }
+  
+  .contact-hero-feature-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: var(--space-3);
+    font-size: var(--text-sm);
+  }
+  
+  .btn {
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-sm);
   }
 }

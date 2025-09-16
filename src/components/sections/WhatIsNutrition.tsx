@@ -132,7 +132,11 @@ const WhatIsNutrition: React.FC = () => {
             </div>
             
             <div className="cta-buttons-modern">
-              <Link to="/contacts" className="btn-modern btn-modern-primary">
+              <Link 
+                to="/contacts" 
+                className="btn-modern btn-modern-primary"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 <span>Записаться на консультацию</span>
                 <ArrowRight size={18} />
               </Link>

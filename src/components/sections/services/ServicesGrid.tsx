@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   User, 
   Calendar, 
@@ -127,10 +128,14 @@ const ServicesGrid: React.FC = () => {
               </div>
 
               <div className="service-card-footer">
-                <button className={`service-cta service-cta-${service.color}`}>
+                <Link 
+                  to="/contacts" 
+                  className={`service-cta service-cta-${service.color}`}
+                  onClick={() => window.scrollTo(0, 0)}
+                >
                   <span>Записаться</span>
                   <ArrowRight size={18} />
-                </button>
+                </Link>
               </div>
             </div>
           ))}
